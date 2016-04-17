@@ -1,0 +1,24 @@
+body,html {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/back.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-family: Raleway;
+    font-weight: 400;
+    color: #afafaf;
+    margin-top: 50px;
+    overflow: visible;
+    font-size: 3rem;
+}
+
+h1 span {
+    color: limegreen;
+}
+
