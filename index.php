@@ -1,6 +1,5 @@
 <?php
 
-
 include "core/config.php";
 
 require 'vendor/autoload.php';
@@ -20,10 +19,3 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 });
 
 $app->run();
-
-/*
-Flight::route('/', function(){
-    echo 'hello world!';
-});
-
-Flight::start();*/
