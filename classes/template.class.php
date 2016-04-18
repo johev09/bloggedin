@@ -1,6 +1,6 @@
 <?php
 
-require_once '/core/functions.php';
+require_once __DIR__.'/../core/functions.php';
 
 class Template {    
     protected $file;

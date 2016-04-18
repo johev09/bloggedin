@@ -1,35 +1,50 @@
-<?php
-
-require_once("config.php");
-
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html>
+   <head>
+    <title>
+        <?=$title?>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link type="text/css" rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" />
 
-<head>
-    <title>#JustABlog</title>
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link type="text/css" rel="stylesheet" href="css/homepage.css" />
 </head>
 
 <body>
-    <?php
-    try {
-
-        $stmt = $db->query('SELECT postID, postTitle, postDesc, postDate FROM blog_posts ORDER BY postID DESC');
-        while($row = $stmt->fetch()){
-            
-            echo '<div>';
-                echo '<h1><a href="viewpost.php?id='.$row['postID'].'">'.$row['postTitle'].'</a></h1>';
-                echo '<p>Posted on '.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
-                echo '<p>'.$row['postDesc'].'</p>';                
-                echo '<p><a href="viewpost.php?id='.$row['postID'].'">Read More</a></p>';                
-            echo '</div>';
-
-        }
-
-    } catch(PDOException $e) {
-        echo $e->getMessage();
-    }
-?>
-</body>
-
-</html>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="<?=$GLOBALS['site.root']?>/login">Blog in</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#portfolio">Register</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#team">Team</a>
+                    </li>
+                    <li class="">
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

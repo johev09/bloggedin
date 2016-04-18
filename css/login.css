@@ -1,0 +1,33 @@
+.login-form-div {
+    text-align: center;
+    
+    color: white;
+    text-transform: uppercase;
+    
+    font-size: 30px;
+}
+
+.form-control {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid limegreen;
+    border-radius: 0px;
+    color: limegreen;
+    font-weight: 400;
+    font-family: "Montserrat",Arial;
+    font-size: 20px;
+    height: auto;
+}
+
+.login-form-div .btn {
+    margin-top: 40px;
+    text-transform: uppercase;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-and {
+    padding: 10px;
+}

@@ -12,12 +12,16 @@ date_default_timezone_set('Asia/Kolkata');
 session_start();
 
 //set timezone
+$GLOBALS['site.root']=config('site.root');
 
-$TEMPLATE = new template(); 
+$TEMPLATE = new Template(); 
 global $TEMPLATE;
+$GLOBALS['template']=$TEMPLATE;
 
-//$DB = new database();
+$DB = new Database();
 global $DB;
+$GLOBALS['db']=$DB;
 
-$USER = new user($DB);
+$USER = new User($DB);
 global $USER;
+$GLOBALS['user']=$USER;

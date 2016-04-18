@@ -1,15 +1,13 @@
+<?php echo $GLOBALS['template']->render('header',$params); ?>
 
-<!doctype HTML>
-<html>
+    <header class="vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Blogged <span>IN</span></h1>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<head>
-    <title><?=$title?></title>
-    <link type="text/css" rel="stylesheet" href="css/main.css"/>
-    <link type="text/css" rel="stylesheet" href="css/homepage.css"/>
-</head>
-
-<body>
-    <h1>BLOGGED <span>IN</span></h1>
-</body>
-
-</html>
+    <?php echo $GLOBALS['template']->render('footer',$params); ?>
