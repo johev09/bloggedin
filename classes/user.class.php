@@ -48,11 +48,14 @@ class User {
         
         if($this->password_verify($password,$hashed)){
             $_SESSION['uname']=$username;
-            $this->uname=$username;
             $_SESSION['loggedin'] = true;
             return true;
         }
         return false;
+    }
+    
+    public function getUname() {
+        return $_SESSION['uname'];
     }
     
     public function logout() {

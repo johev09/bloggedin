@@ -24,7 +24,8 @@ function login() {
     if(!$GLOBALS['user']->login($uname,$pass))
         $errors[]="Login Unsuccessful. Username or Password wrong.";
     else
-        redirect("/author/$uname");
+        redirect("/");
+        //redirect("/author/$uname");
 }
 
 if(isset($_POST['login']))
