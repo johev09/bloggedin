@@ -1,0 +1,8 @@
+
+CREATE TABLE users
+(
+	uid INT AUTO_INCREMENT,
+	uname VARCHAR(30),
+	pass VARCHAR(128),
+	PRIMARY KEY(uid)
+);

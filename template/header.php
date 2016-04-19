@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-   <head>
+
+<head>
     <title>
         <?=$title?>
     </title>
@@ -16,6 +17,13 @@
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+            <div class="navbar-header">
+               <?php
+    if($GLOBALS['user']->is_logged_in()) {
+    ?><a class="navbar-brand" href="<?=$GLOBALS['site.root']?>/logout"><?=$GLOBALS['user']->uname?>, Logout</a>
+<?php }
+    ?>
+            </div>
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>

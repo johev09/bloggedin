@@ -31,3 +31,11 @@
 .form-and {
     padding: 10px;
 }
+
+.error {
+    font-family: "Montserrat",Arial;
+    font-size: 1.2rem;
+    color: dodgerblue;
+    //text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    margin-top: 2rem;
+}

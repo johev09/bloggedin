@@ -3,6 +3,7 @@
 class User {
     
     private $db;
+    public $uname;
 
     public function __construct($db){
         $this->db = $db; 
@@ -18,11 +19,17 @@ class User {
     
     private function get_user_hash($username){  
         try {
-            $query='SELECT password FROM blog_members WHERE username = :username';
+            $query='SELECT pass FROM users WHERE uname = :username';
             $params=array('username' => $username);
             
             $row = $this->db->query($query,$params);
-            return $row['password'];
+            if(count($row)==0) {
+                return false;
+            }
+            
+            //var_dump($row);
+            
+            return $row[0]['pass'];
 
         } catch(PDOException $e) {
             echo '<p class="error">'.$e->getMessage().'</p>';
@@ -35,9 +42,20 @@ class User {
     
     public function login($username,$password){ 
         $hashed = $this->get_user_hash($username);
-        if($this->password_verify($password,$hashed) == 1){
+        if($hashed === false) {
+            return false;
+        }
+        
+        if($this->password_verify($password,$hashed)){
+            $_SESSION['uname']=$username;
+            $this->uname=$username;
             $_SESSION['loggedin'] = true;
             return true;
-        }       
+        }
+        return false;
+    }
+    
+    public function logout() {
+        session_destroy();
     }
 }

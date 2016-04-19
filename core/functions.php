@@ -12,3 +12,8 @@ function config($key, $value = null) {
     $_config[$key] = $value;
 }
 
+function redirect($url, $statusCode = 303) {
+   header('Location: ' . $GLOBALS['site.root'].$url, true, $statusCode);
+   die();
+}
+

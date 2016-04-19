@@ -4,7 +4,7 @@
 define('DBHOST','localhost');
 define('DBUSER','root');
 define('DBPASS','');
-define('DBNAME','blog');
+define('DBNAME',config('dbname'));
 
 class Database {
     
@@ -17,11 +17,11 @@ class Database {
         
     }
     
-    public function query($str,$params) {
+    public function query($str, $params = array()) {
         $stmt = $this->db->prepare($str);
         $stmt->execute($params);
 
-        $rows = $stmt->fetch();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $rows;
     }
 }

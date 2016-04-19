@@ -1,7 +1,19 @@
-RewriteEngine On
-RewriteRule ^ index.php [QSA,L]
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
 
 <Files .htaccess>
 Order Allow,Deny
 Deny from all
 </Files>
+
+<FilesMatch ".*\.(php|ini)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^index\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

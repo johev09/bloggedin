@@ -5,15 +5,20 @@ require "vendor/autoload.php";
 
 $app = new Silex\Application();
 
-
 $app->get('/', function () {
     //echo 'Hello';
     return $GLOBALS['template']->render('homepage');
+    //return '';
 });
 
-$app->get('/login', function () {
+$app->match('/login', function () {
     //echo 'Hello';
     return $GLOBALS['template']->render('login');
+});
+$app->match('/logout', function () {
+    //echo 'Hello';
+    $GLOBALS['user']->logout();
+    redirect('/');
 });
 
 $app->get('/hello/{name}', function ($name) use ($app) {
@@ -26,6 +31,7 @@ $app->get("/{all}", function ($all) {
     exit;
 })->assert("all", ".*");
 
+
 $app->error(function (\Exception $e, $code) {
     switch ($code) {
         case 404:
@@ -35,7 +41,7 @@ $app->error(function (\Exception $e, $code) {
             $message = 'We are sorry, but something went terribly wrong.';
     }
 
-    return new Response($message);
+    return $e->getMessage();
 });
 
 
