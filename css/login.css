@@ -1,10 +1,26 @@
+header {
+    padding-top: 50px;
+}
+
 .login-form-div {
     text-align: center;
-    
+}
+
+.form-group {
+    padding: 10px 0px;    
+    display: inline-block;
+    float: none;
+}
+
+label {
     color: white;
-    text-transform: uppercase;
-    
-    font-size: 30px;
+    text-transform: lowercase;
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: 400;
+    word-spacing: 10px;
+    margin: 0px 10px;
+    //margin-bottom: 10px;
 }
 
 .form-control {
@@ -14,13 +30,14 @@
     border-radius: 0px;
     color: limegreen;
     font-weight: 400;
-    font-family: "Montserrat",Arial;
+    font-family: "Montserrat", Arial;
     font-size: 20px;
     height: auto;
+    text-align: center;
 }
 
 .login-form-div .btn {
-    margin-top: 40px;
+    margin-top: 10px;
     text-transform: uppercase;
 }
 
@@ -33,7 +50,7 @@
 }
 
 .error {
-    font-family: "Montserrat",Arial;
+    font-family: "Montserrat", Arial;
     font-size: 1.2rem;
     color: dodgerblue;
     //text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);

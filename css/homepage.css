@@ -44,17 +44,21 @@ h1 span {
     border-color: transparent;
 }
 .navbar-default .nav li a {
-    font-family: "Montserrat",Arial;
+    font-family: "Montserrat", Arial;
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 1px;
     color: white;
-    transition: border 0.3s;
-    border-bottom: 2px solid transparent;
+    transition: background-color 0.3s;
+    border-radius: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    //border-bottom: 2px solid transparent;
 }
 .navbar-default .nav li a:hover {
     color: white;
-    border-bottom: 2px solid limegreen;
+    background-color: limegreen;
+    //border-bottom: 2px solid limegreen;
 }
 .navbar-default .navbar-brand {
     color: white;

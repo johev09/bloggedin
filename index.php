@@ -11,23 +11,46 @@ $app->get('/', function () {
     //return '';
 });
 
+/*
 $app->match('/login', function () {
     //echo 'Hello';
     return $GLOBALS['template']->render('login');
 });
 $app->match('/logout', function () {
     //echo 'Hello';
-    $GLOBALS['user']->logout();
-    redirect('/');
-});
+});*/
 
 $app->get('/hello/{name}', function ($name) use ($app) {
     return 'Hello '.$app->escape($name);
 });
 
-$app->get("/{all}", function ($all) {
+$app->get('/author/{author}', function ($author) use ($app) {
+    return $GLOBALS['template']->render('blog',
+                                       array("author"=>$author));
+});
+$app->get('/post/delete/{author}/{pid}', function ($author,$pid) use ($app) {
+    
+    if($GLOBALS['user']->is_logged_in($author)) {
+        $GLOBALS['user']->delete_post($pid);
+        redirect("/author/$author");
+    }
+});
+
+$app->match("/{all}", function ($all) {
     // do stuff
-    return $all;
+    switch($all) {
+        case "login":
+        case "register":
+        case "post":
+            return $GLOBALS['template']->render($all);
+            break;
+        case "logout":
+            $GLOBALS['user']->logout();
+            redirect('/');
+            break;
+        default:
+            return $all;            
+    }
     exit;
 })->assert("all", ".*");
 
@@ -43,6 +66,5 @@ $app->error(function (\Exception $e, $code) {
 
     return $e->getMessage();
 });
-
 
 $app->run();

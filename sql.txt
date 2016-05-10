@@ -6,3 +6,29 @@ CREATE TABLE users
 	pass VARCHAR(128),
 	PRIMARY KEY(uid)
 );
+
+CREATE TABLE authors
+(
+    aid INT,
+    name VARCHAR(30),
+    location VARCHAR(30),
+    PRIMARY KEY(aid),
+    FOREIGN KEY(aid) references users(uid)
+);
+
+CREATE TABLE posts
+(
+    pid INT AUTO_INCREMENT,
+    title TEXT,
+    body TEXT,
+    date_created DATE,
+    PRIMARY KEY(pid)
+);
+
+CREATE TABLE posts_ref
+(
+    aid INT,
+    pid INT,
+    FOREIGN KEY(aid) references authors(aid),
+    FOREIGN KEY(pid) references posts(pid)
+);

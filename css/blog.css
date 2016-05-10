@@ -1,0 +1,143 @@
+body,
+html,
+.row-offcanvas {
+    height: 100%;
+}
+
+#menu-toggle {
+    background: white;
+    border-radius: 0px;
+    border: 0;
+    opacity: 0.7;
+    transition-property: background,color;
+    transition-duration: 0.3s,0.3s;
+}
+#menu-toggle:hover {
+    background: rgba(30, 144, 255, 0.5);
+    color: white;
+}
+#menu-toggle .glyphicon {
+    text-shadow: none;
+}
+
+#wrapper {
+    //overflow-y: auto;
+    margin-top: 101px;
+    height: calc(100% - 101px);
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+.post-header {
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.post h2 {
+    font-family: "Montserrat",sans-serif;
+    letter-spacing: 2px;
+    display: inline-block;
+    padding: 10px;
+    background: rgba(30, 144, 255, 0.5);
+}
+.post-body p {
+    font-family: "Roboto",sans-serif;
+    font-size: 1rem;
+    margin: 30px 0px;
+}
+
+.post-date {
+    font-family: "Montserrat",sans-serif;
+    font-size: 0.7rem;
+    margin: 20px 0px;
+}
+
+.post-date i {
+    vertical-align: middle;
+    font-size: 1.1rem;
+}
+
+.post-delete {
+    color: white;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    transition: background 0.3s;
+}
+.post-delete i {
+    vertical-align: middle;
+    font-size: 20px;
+}
+.post-delete:hover {
+    color: white;
+    background: rgba(220, 20, 60, 0.60);
+    
+}
+
+
+#posts-col {
+    padding-left: 40px;
+}
+
+#sidebar {
+    //width: inherit;
+    //position: fixed;
+    min-width: 220px;
+    //max-width: 220px;
+    float: left;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 30px 0px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+}
+.profile-name {
+    //font-family: Roboto;
+    font-size: 1.1em;
+    color: white !important;
+    letter-spacing: 1px;
+    //text-transform: uppercase;
+    border-bottom: 2px solid limegreen;
+}
+
+
+/*
+ * off Canvas sidebar
+ * --------------------------------------------------
+ */
+
+@media screen and (max-width: 768px) {
+    #wrapper {
+        margin-top: 51px;
+        height: calc(100% - 51px);
+    }
+    .row-offcanvas {
+        position: fixed;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+        width: calc(100% + 220px);
+    }
+    .row-offcanvas-left {
+        left: -220px;
+    }
+    .row-offcanvas-left.active {
+        left: 0;
+    }
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+    }
+}
