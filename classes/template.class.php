@@ -7,6 +7,8 @@ class Template {
     protected $title;
     protected $values = array();
     protected $folder_template;
+    
+    public $template;
   
     public function __construct() {
         $this->folder_template = config('folder.template');
@@ -29,13 +31,12 @@ class Template {
                 $params['title']=$this->title;
         }
         else {
-            $params = [
-                "title"=>$this->title
-            ];
+            $params = ["title"=>$this->title];
         }
+        $this->template=$file;
         
         // extract array keys as local variables
-        extract($params);
+        extract($params,EXTR_SKIP);
         
         ob_start();
         include $this->file;

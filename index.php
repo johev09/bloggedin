@@ -28,11 +28,24 @@ $app->get('/author/{author}', function ($author) use ($app) {
     return $GLOBALS['template']->render('blog',
                                        array("author"=>$author));
 });
-$app->get('/post/delete/{author}/{pid}', function ($author,$pid) use ($app) {
-    
+$app->get('/post/delete/{author}/{pid}', function ($author,$pid) use ($app) { 
     if($GLOBALS['user']->is_logged_in($author)) {
         $GLOBALS['user']->delete_post($pid);
         redirect("/author/$author");
+    }
+});
+$app->post('/post/add', function () use ($app) { 
+    //post blog if details given
+    if(isset($_POST['post-submit'])) {
+        //var_dump($_POST);
+        $title=trim($_POST['title']);
+        $body=trim($_POST['body']);
+        $date_created=date("Y-m-d H:i:s");
+        
+        $GLOBALS['user']->add_post($title,$body,$date_created);
+        
+        //redirect to blog page after posting
+        redirect('/author/'.$GLOBALS['user']->get_uname());
     }
 });
 

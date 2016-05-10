@@ -2,19 +2,6 @@
     if(!$GLOBALS['user']->is_logged_in()) {
         redirect('/');
     }
-
-    //post blog if details given
-    if(isset($_POST['post-submit'])) {
-        //var_dump($_POST);
-        $title=trim($_POST['title']);
-        $body=trim($_POST['body']);
-        $date_created=date("Y-m-d H:i:s");
-        
-        $GLOBALS['user']->add_post($title,$body,$date_created);
-        
-        //redirect to blog page after posting
-        redirect('/author/'.$GLOBALS['user']->get_uname());
-    }
 ?>
 
     <?=$GLOBALS['template']->render('header',$params)?>
@@ -56,7 +43,7 @@
                                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-chevron-left"></span></a>
                                 </div>
                             </div>
-                            <form name="post-form" action="<?=$_SERVER['REQUEST_URI']?>" method="post" onsubmit="return validate();">
+                            <form name="post-form" action="<?=$GLOBALS['site.root']?>/post/add?>" method="post" onsubmit="return validate();">
                                 <div class="row form-group">
                                     <input type="text" required name="title" id="title" class="form-control" placeholder="Title goes here" />
                                 </div>
